@@ -1,9 +1,12 @@
 import matplotlib.pyplot as plt
 import json
 
-def getPokemonByName(name):
+def getAllPokemons():
     f = open('pokemon.json')
-    pokedex = json.load(f)
+    return json.load(f)
+
+def getPokemonByName(name):
+    pokedex = getAllPokemons()
     for pkmn in pokedex:
         if pkmn["name"] == name:
             return pkmn
@@ -28,8 +31,8 @@ def getWeaknessesByName(name):
 
 def ejercicio1():
     dic = {}
-    f = open('pokemon.json')
-    pokedex = json.load(f)
+    pokedex = getAllPokemons()
+
     for pkmn in pokedex:
         # Si no saben diccionarios, les podemos dar la funcion getTypesByName que les retorna la lista de tipos
         for t in pkmn["type"]:
@@ -49,9 +52,8 @@ def ejercicio1():
 
 
 def ejercicio2():
-    dic = {}
-    f = open('pokemon.json')
-    pokedex = json.load(f)
+    pokedex = getAllPokemons()
+    
     vec = []
     for i in range(9):
         # Si no saben diccionarios pueden usar la funcion get weaknesses by name
