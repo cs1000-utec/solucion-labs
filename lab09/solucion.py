@@ -88,4 +88,4 @@ def ejercicio4():
 
     plt.show()
 
-ejercicio1()
+ejercicio4()
